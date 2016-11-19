@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 CORS(app)
  #This is the path to the upload directory
-app.config['UPLOAD_FOLDER'] = '/var/lib/openshift/564e3aa50c1e6659a400015a/app-root/data/uploads/'
+app.config['UPLOAD_FOLDER'] = '/var/lib/openshift/582615be2d5271e17600000c/app-root/data/uploads/'
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -63,7 +63,7 @@ def delete_item(filename):
 
 @app.route('/images')
 def images():
-    image_names = os.listdir('/var/lib/openshift/564e3aa50c1e6659a400015a/app-root/data/uploads/')
+    image_names = os.listdir('/var/lib/openshift/582615be2d5271e17600000c/app-root/data/uploads/')
     print image_names
     width = max(0, min(1000, int(request.args.get('width', 200))))
     height = max(0, min(1000, int(request.args.get('height', 200))))
@@ -119,7 +119,7 @@ def uploaded_file(filename):
 def get_path():
     imgs = []
     #for img in os.listdir('/Users/jd/Documents/Code/pillfinder/uploads'):
-    for img in os.listdir('/var/lib/openshift/564e3aa50c1e6659a400015a/app-root/data/uploads/'):
+    for img in os.listdir('/var/lib/openshift/582615be2d5271e17600000c/app-root/data/uploads/'):
         imgs.append(img)
 #    image = random.randint(0, len(imgs)-1) #gen random image path from images in directory
     return imgs #imgs[image].split(".")[0] #get filename without extension
