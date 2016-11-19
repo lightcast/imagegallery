@@ -2,17 +2,17 @@
 import os
 import random
 from flask import Flask, jsonify, render_template, request, redirect, url_for, send_from_directory
-from flask.ext.cors import CORS
+#from flask.ext.cors import CORS
 #from flask.ext.images import Images
-from werkzeug import secure_filename
-from os import listdir
-from os.path import isfile, join
+#from werkzeug import secure_filename
+#from os import listdir
+#from os.path import isfile, join
 
 app = Flask(__name__)
 #images = Images(app)
 
 
-CORS(app)
+#CORS(app)
  #This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = '/var/lib/openshift/582615be2d5271e17600000c/app-root/data/uploads/'
 # These are the extension that we are accepting to be uploaded
