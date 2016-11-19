@@ -53,7 +53,7 @@ def uploads():
 
 
 
-
+'''
 @app.route('/pillfinder/api/v1.0/delete_item/<filename>/', methods=['GET', 'POST'])
 def delete_item(filename):
     os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -129,7 +129,7 @@ def listfiles():
     img = get_path()
     print img
     return render_template('browseImages.html', img=img) #template just shows image
-
+'''
 if __name__ == '__main__':
     app.run(
         debug=True
