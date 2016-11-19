@@ -1,6 +1,6 @@
 #!flask/bin/python
 import os
-import random
+#import random 
 from flask import Flask #, jsonify, render_template, request, redirect, url_for, send_from_directory
 #from flask.ext.cors import CORS
 #from flask.ext.images import Images
@@ -14,33 +14,14 @@ app = Flask(__name__)
 
 #CORS(app)
  #This is the path to the upload directory
-app.config['UPLOAD_FOLDER'] = '/var/lib/openshift/582615be2d5271e17600000c/app-root/data/uploads/'
+#app.config['UPLOAD_FOLDER'] = '/var/lib/openshift/582615be2d5271e17600000c/app-root/data/uploads/'
 # These are the extension that we are accepting to be uploaded
-app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+#app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 # For a given file, return whether it's an allowed type or not
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
-
-
-
-pills = [
-    {
-        'id': 1,
-        'pill_name': u'amlodipine-valsartan oral',
-        'description': u'This medicine is a cream, oval, film-coated tablet imprinted with "1206".',
-        'generic_name': ' amlodipine-valsartan',
-        'strength': '10-160 mg'
-    },
-    {
-        'id': 2,
-        'pill_name': u'baclofen oral',
-        'description': u'This medicine is a off-white, oval, scored tablet imprinted with "V" and "22 65".',
-        'generic_name': u'benazepril-hydrochlorothiazide',
-        'strength':  '5-6.25 mg'
-    }
-]
+#def allowed_file(filename):
+#    return '.' in filename and \
+#           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 
 @app.route('/')
