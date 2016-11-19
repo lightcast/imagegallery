@@ -1,7 +1,7 @@
 #!flask/bin/python
 import os
 import random
-from flask import Flask, jsonify, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask #, jsonify, render_template, request, redirect, url_for, send_from_directory
 #from flask.ext.cors import CORS
 #from flask.ext.images import Images
 #from werkzeug import secure_filename
