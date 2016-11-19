@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+  rel="stylesheet">
+
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+main {
+  padding: 30px;
+  min-width: 250px;
+}
+
+.hero {
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.hero img {
+  height: 100%
+}
+
+
+.thumbnail {
+  display: inline-block;
+  cursor: pointer;
+ /* height: 60px; */
+}
+
+a.thumbnail:hover {
+  box-shadow: 5px 5px 5px gray;
+}
+
+.thumbnail img {
+  max-height: 100%;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+    <div class="hero">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-65/cat1.jpg" alt="" />
+      <a id="lnkShow" href="">Show</a>
+      <a id="lnkDelete" target="_blank" href="">Delete</a>
+    </div>
+      <!--  {{image_names}} -->
+        <hr>
+
+        {% for image_name in image_names %}
+        <div class="col-lg-3, col-md-4 col-sm-4 col-xs-6 thumb">
+          <img class="thumbnail" src=" {{url_for('uploaded_file', filename=image_name )}}" width="150" height="150">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script>
+
+$(document).ready(function(){
+function handleThumbnailClicks() {
+  console.log('test');
+  $('.thumbnail').click(function(event) {
+    console.log($(event.currentTarget));
+    console.log($(event.currentTarget)[0]);
+    var imgSrc = $(event.currentTarget)[0]; //.attr('src'); //$(event.currentTarget).find('img').attr('src');
+    console.log(imgSrc.getAttribute('src'));
+    $('.hero img').attr('src', imgSrc.getAttribute('src'));
+     $('#lnkShow').attr('href', imgSrc.getAttribute('src'));
+     var del = imgSrc.getAttribute('src').split('/').map(function(v){
+        if(v === 'uploads'){
+          return 'delete_item';
+        }
+        return v;
+     }).join('/');
+
+    $('#lnkDelete').attr('href', del);
+  })
+}
+
+$('#lnkDelete').click(function(e){
+   window.location.reload(true);
+})
+
+
+$(function() {
+  handleThumbnailClicks();
+});
+});
+
+
+</script>
+
+  </body>
+  </html>
